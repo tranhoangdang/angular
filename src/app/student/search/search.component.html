@@ -1,0 +1,83 @@
+<app-nav></app-nav>
+<div class="container">
+  <form action="/action_page.php" class="mt-4">
+    <div class="row mb-3">
+      <div class="col-6 col-md-3">
+        <input
+          type="text"
+          class="form-control"
+          id="key"
+          placeholder="Tìm kiếm"
+          name="key"
+        />
+      </div>
+      <div class="col-6 col-md-3">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Quận</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="col-6 col-md-3">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Loại BĐS</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <div class="col-6 col-md-3">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Giá</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+  </form>
+  <nav aria-label="breadcrumb" class="mb-3">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Tìm thuê</li>
+    </ol>
+  </nav>
+  <h5>Thuê Nhà Đất Giá Rẻ Tại Việt Nam, Giá Thuê Mới Nhất T10/2022</h5>
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <p class="p-2 bg-light rounded">
+        <span class="fw-bold">1</span> - <span class="fw-bold">15</span> trong
+        <span class="fw-bold">100</span> kết quả
+      </p>
+      <div *ngIf="propertiesDis.length != 0">
+        <div class="py-2 border-top" *ngFor="let item of propertiesDis">
+          <div class="row">
+            <div class="col-4">
+              <img src="{{ item.propertyImg[0] }}" class="img-fluid" alt="" />
+            </div>
+            <div class="col-8">
+              <h6>{{ item.title }}</h6>
+              <p>{{ item.address }}</p>
+              <h6>{{ item.area }} m2</h6>
+              <h5>{{ item.amount }}/tháng</h5>
+              <p>Ngày đăng: {{ item.createDatetime | date : "dd/MM/yyyy" }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <img src="/assets/images/img2.png" class="img-fluid mb-3" alt="" />
+      <div class="p-3 border rounded">
+        <h6>Loại bất động sản</h6>
+        <ul>
+          <li><a href="" class="nav-link">Nhà (20)</a></li>
+          <li><a href="" class="nav-link">Căn hộ (20)</a></li>
+          <li><a href="" class="nav-link">Phòng trọ (20)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
